@@ -1,0 +1,59 @@
+/* 针对B站合集/单P标题换行 */
+.single-p .title,
+.single-p .title-txt {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    display: inline !important;
+    max-width: 100% !important; /* 防止溢出容器 */
+    line-height: 1.2 !important;
+}
+
+.single-p{
+    height: auto !important;
+    min-height: 50px; /* 根据实际情况调整 */
+    padding: 15px 0 !important;      /* 增加内边距留出横线空间 */
+    position: relative !important;  /* 为伪元素定位做准备 */
+}
+
+/* 双层分P头部标题换行 */
+.multi-p .head .title-txt {
+    white-space: normal !important;
+    min-height: 50px; /* 根据实际情况调整 */
+    padding: 15px 0 !important;      /* 增加内边距留出横线空间 */
+    position: relative !important;  /* 为伪元素定位做准备 */
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    display: block !important;
+    line-height: 1.4 !important;
+}
+
+/* 明确锁定子项为单行 */
+.multi-p .page-list .sub .title-txt {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    display: block !important;
+}
+
+/* 上横线 */
+.single-p::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #e5e5e5;     /* 浅灰色横线，B站风格 */
+}
+
+/* 下横线 */
+.single-p::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #e5e5e5;
+}
